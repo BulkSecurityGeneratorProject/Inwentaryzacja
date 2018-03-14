@@ -1,0 +1,50 @@
+enum Unit {
+	PIECES, KILOGRAM, LITER
+}
+
+entity Product {
+	name String,
+    unit Unit
+}
+
+entity Warehouse {
+	name String
+}
+
+entity Place {
+	name String
+}
+
+entity ProductQuantity {
+	quantity Long
+}
+
+entity WarehouseInventarisation {
+	date LocalDate
+}
+
+entity Inventarisation {
+	date LocalDate
+}
+
+entity Supplier {
+	name String
+}
+
+relationship OneToMany {
+    Product{place} to Place{product}
+    Product{warehouse} to Warehouse{product}
+	Product{supplier} to Supplier{product}
+    ProductQuantity{product} to Product{productQuantity}
+    Warehouse{place} to Place{warehouse}
+    WarehouseInventarisation{warehouse} to Warehouse{warehouseInventarisation}
+    ProductQuantity{warehouseInventarisation} to WarehouseInventarisation{productQuantity}
+    WarehouseInventarisation{inventarisation} to Inventarisation{warehouseInventarisation}
+}
+
+relationship ManyToMany {
+	Product{warehouse} to Warehouse{product}
+}
+dto * with mapstruct
+
+service all with serviceImpl
