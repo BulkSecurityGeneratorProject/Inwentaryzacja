@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "warehouse",
+            "otherEntityName": "warehouse",
+            "otherEntityRelationshipName": "warehouseInventarisation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inventarisation",
+            "otherEntityName": "inventarisation",
+            "otherEntityRelationshipName": "warehouseInventarisation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "productQuantity",
+            "otherEntityName": "productQuantity",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180314174553",
+    "entityTableName": "warehouse_inventarisation",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

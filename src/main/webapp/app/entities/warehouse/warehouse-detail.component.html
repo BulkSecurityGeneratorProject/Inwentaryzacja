@@ -1,0 +1,38 @@
+
+<div *ngIf="warehouse">
+    <h2><span>Warehouse</span> {{warehouse.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{warehouse.name}}</span>
+        </dd>
+        <dt><span>Product</span></dt>
+        <dd>
+            <div *ngIf="warehouse.productId">
+                <a [routerLink]="['/product', warehouse.productId]">{{warehouse.productId}}</a>
+            </div>
+        </dd>
+        <dt><span>Warehouse Inventarisation</span></dt>
+        <dd>
+            <div *ngIf="warehouse.warehouseInventarisationId">
+                <a [routerLink]="['/warehouse-inventarisation', warehouse.warehouseInventarisationId]">{{warehouse.warehouseInventarisationId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'warehouse/'+ warehouse.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
