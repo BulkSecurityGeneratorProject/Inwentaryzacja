@@ -1,0 +1,44 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myWarehouseLabel">Create or edit a Warehouse</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!warehouse.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="warehouse.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="warehouse.name" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_product">Product</label>
+            <select class="form-control" id="field_product" name="product" [(ngModel)]="warehouse.productId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="productOption.id" *ngFor="let productOption of products; trackBy: trackProductById">{{productOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_warehouseInventarisation">Warehouse Inventarisation</label>
+            <select class="form-control" id="field_warehouseInventarisation" name="warehouseInventarisation" [(ngModel)]="warehouse.warehouseInventarisationId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="warehouseInventarisationOption.id" *ngFor="let warehouseInventarisationOption of warehouseinventarisations; trackBy: trackWarehouseInventarisationById">{{warehouseInventarisationOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

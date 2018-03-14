@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "productQuantity"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "warehouseInventarisation",
+            "otherEntityName": "warehouseInventarisation",
+            "otherEntityRelationshipName": "productQuantity"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180314174552",
+    "entityTableName": "product_quantity",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
