@@ -37,10 +37,6 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product")
     @JsonIgnore
-    private Set<Warehouse> warehouses = new HashSet<>();
-
-    @OneToMany(mappedBy = "product")
-    @JsonIgnore
     private Set<Supplier> suppliers = new HashSet<>();
 
     @ManyToMany
@@ -110,31 +106,6 @@ public class Product implements Serializable {
 
     public void setPlaces(Set<Place> places) {
         this.places = places;
-    }
-
-    public Set<Warehouse> getWarehouses() {
-        return warehouses;
-    }
-
-    public Product warehouses(Set<Warehouse> warehouses) {
-        this.warehouses = warehouses;
-        return this;
-    }
-
-    public Product addWarehouse(Warehouse warehouse) {
-        this.warehouses.add(warehouse);
-        warehouse.setProduct(this);
-        return this;
-    }
-
-    public Product removeWarehouse(Warehouse warehouse) {
-        this.warehouses.remove(warehouse);
-        warehouse.setProduct(null);
-        return this;
-    }
-
-    public void setWarehouses(Set<Warehouse> warehouses) {
-        this.warehouses = warehouses;
     }
 
     public Set<Supplier> getSuppliers() {

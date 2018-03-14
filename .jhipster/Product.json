@@ -9,12 +9,6 @@
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "warehouse",
-            "otherEntityName": "warehouse",
-            "otherEntityRelationshipName": "product"
-        },
-        {
-            "relationshipType": "one-to-many",
             "relationshipName": "supplier",
             "otherEntityName": "supplier",
             "otherEntityRelationshipName": "product"

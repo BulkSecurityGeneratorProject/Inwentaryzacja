@@ -19,13 +19,6 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" for="field_product">Product</label>
-            <select class="form-control" id="field_product" name="product" [(ngModel)]="warehouse.productId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="productOption.id" *ngFor="let productOption of products; trackBy: trackProductById">{{productOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" for="field_warehouseInventarisation">Warehouse Inventarisation</label>
             <select class="form-control" id="field_warehouseInventarisation" name="warehouseInventarisation" [(ngModel)]="warehouse.warehouseInventarisationId" >
                 <option [ngValue]="null"></option>

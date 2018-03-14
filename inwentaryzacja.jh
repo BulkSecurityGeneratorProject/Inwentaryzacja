@@ -33,7 +33,6 @@ entity Supplier {
 
 relationship OneToMany {
     Product{place} to Place{product}
-    Product{warehouse} to Warehouse{product}
 	Product{supplier} to Supplier{product}
     ProductQuantity{product} to Product{productQuantity}
     Warehouse{place} to Place{warehouse}

@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Warehouse } from './warehouse.model';
 import { WarehousePopupService } from './warehouse-popup.service';
 import { WarehouseService } from './warehouse.service';
-import { Product, ProductService } from '../product';
 import { WarehouseInventarisation, WarehouseInventarisationService } from '../warehouse-inventarisation';
+import { Product, ProductService } from '../product';
 
 @Component({
     selector: 'jhi-warehouse-dialog',
@@ -21,26 +21,26 @@ export class WarehouseDialogComponent implements OnInit {
     warehouse: Warehouse;
     isSaving: boolean;
 
-    products: Product[];
-
     warehouseinventarisations: WarehouseInventarisation[];
+
+    products: Product[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private warehouseService: WarehouseService,
-        private productService: ProductService,
         private warehouseInventarisationService: WarehouseInventarisationService,
+        private productService: ProductService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.productService.query()
-            .subscribe((res: HttpResponse<Product[]>) => { this.products = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.warehouseInventarisationService.query()
             .subscribe((res: HttpResponse<WarehouseInventarisation[]>) => { this.warehouseinventarisations = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.productService.query()
+            .subscribe((res: HttpResponse<Product[]>) => { this.products = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -77,11 +77,11 @@ export class WarehouseDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackProductById(index: number, item: Product) {
+    trackWarehouseInventarisationById(index: number, item: WarehouseInventarisation) {
         return item.id;
     }
 
-    trackWarehouseInventarisationById(index: number, item: WarehouseInventarisation) {
+    trackProductById(index: number, item: Product) {
         return item.id;
     }
 

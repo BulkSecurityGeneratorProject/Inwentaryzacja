@@ -9,8 +9,8 @@ import { InwentaryzacjaTestModule } from '../../../test.module';
 import { WarehouseDialogComponent } from '../../../../../../main/webapp/app/entities/warehouse/warehouse-dialog.component';
 import { WarehouseService } from '../../../../../../main/webapp/app/entities/warehouse/warehouse.service';
 import { Warehouse } from '../../../../../../main/webapp/app/entities/warehouse/warehouse.model';
-import { ProductService } from '../../../../../../main/webapp/app/entities/product';
 import { WarehouseInventarisationService } from '../../../../../../main/webapp/app/entities/warehouse-inventarisation';
+import { ProductService } from '../../../../../../main/webapp/app/entities/product';
 
 describe('Component Tests', () => {
 
@@ -26,8 +26,8 @@ describe('Component Tests', () => {
                 imports: [InwentaryzacjaTestModule],
                 declarations: [WarehouseDialogComponent],
                 providers: [
-                    ProductService,
                     WarehouseInventarisationService,
+                    ProductService,
                     WarehouseService
                 ]
             })

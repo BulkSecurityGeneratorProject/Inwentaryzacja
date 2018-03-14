@@ -12,8 +12,8 @@ export class Product implements BaseEntity {
         public name?: string,
         public unit?: Unit,
         public places?: BaseEntity[],
-        public warehouses?: BaseEntity[],
         public suppliers?: BaseEntity[],
+        public warehouses?: BaseEntity[],
         public productQuantityId?: number,
     ) {
     }

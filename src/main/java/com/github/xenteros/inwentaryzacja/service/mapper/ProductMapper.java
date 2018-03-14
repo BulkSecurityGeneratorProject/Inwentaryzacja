@@ -15,7 +15,6 @@ public interface ProductMapper extends EntityMapper<ProductDTO, Product> {
     ProductDTO toDto(Product product);
 
     @Mapping(target = "places", ignore = true)
-    @Mapping(target = "warehouses", ignore = true)
     @Mapping(target = "suppliers", ignore = true)
     @Mapping(source = "productQuantityId", target = "productQuantity")
     Product toEntity(ProductDTO productDTO);

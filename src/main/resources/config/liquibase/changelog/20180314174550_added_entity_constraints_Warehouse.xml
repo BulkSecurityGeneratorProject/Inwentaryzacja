@@ -8,12 +8,6 @@
     -->
     <changeSet id="20180314174550-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="product_id"
-                                 baseTableName="warehouse"
-                                 constraintName="fk_warehouse_product_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="product"/>
-
         <addForeignKeyConstraint baseColumnNames="warehouse_inventarisation_id"
                                  baseTableName="warehouse"
                                  constraintName="fk_warehouse_warehouse_inventarisation_id"
