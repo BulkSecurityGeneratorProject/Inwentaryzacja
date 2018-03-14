@@ -15,8 +15,6 @@ public class WarehouseDTO implements Serializable {
 
     private String name;
 
-    private Long productId;
-
     private Long warehouseInventarisationId;
 
     public Long getId() {
@@ -33,14 +31,6 @@ public class WarehouseDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
     }
 
     public Long getWarehouseInventarisationId() {

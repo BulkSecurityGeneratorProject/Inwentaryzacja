@@ -8,12 +8,6 @@
         <dd>
             <span>{{warehouse.name}}</span>
         </dd>
-        <dt><span>Product</span></dt>
-        <dd>
-            <div *ngIf="warehouse.productId">
-                <a [routerLink]="['/product', warehouse.productId]">{{warehouse.productId}}</a>
-            </div>
-        </dd>
         <dt><span>Warehouse Inventarisation</span></dt>
         <dd>
             <div *ngIf="warehouse.warehouseInventarisationId">

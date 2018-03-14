@@ -30,9 +30,6 @@ public class Warehouse implements Serializable {
     private Set<Place> places = new HashSet<>();
 
     @ManyToOne
-    private Product product;
-
-    @ManyToOne
     private WarehouseInventarisation warehouseInventarisation;
 
     @ManyToMany(mappedBy = "warehouses")
@@ -84,19 +81,6 @@ public class Warehouse implements Serializable {
 
     public void setPlaces(Set<Place> places) {
         this.places = places;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public Warehouse product(Product product) {
-        this.product = product;
-        return this;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public WarehouseInventarisation getWarehouseInventarisation() {
